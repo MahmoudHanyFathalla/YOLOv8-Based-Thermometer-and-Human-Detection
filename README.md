@@ -3,6 +3,9 @@
 ## Project Overview
 This project implements a **real-time object detection system** using **YOLOv8** to detect thermometers, used thermometers, and humans. The model has been trained with a curated dataset using **Roboflow** for augmentation and is deployed for inference on images, videos, and live camera feeds.
 
+![Description of GIF](assets/1.gif)
+![Description of GIF](assets/2.gif)
+
 ## Key Features
 - **Live Camera Detection**: Detects objects in real-time using a webcam.
 - **Image Processing**: Performs inference on static images and saves results.
