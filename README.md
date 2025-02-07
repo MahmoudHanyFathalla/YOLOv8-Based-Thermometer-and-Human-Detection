@@ -50,6 +50,25 @@ model.train(data="dataset.yaml", epochs=50, imgsz=640, batch=16)
 ```
 
 ## Running Inference
+### Live Camera Detection
+```python
+import cv2
+from ultralytics import YOLO
+
+model = YOLO("best.pt")
+cap = cv2.VideoCapture(0)
+while cap.isOpened():
+    success, frame = cap.read()
+    if success:
+        results = model(frame)
+        annotated_frame = results[0].plot()
+        cv2.imshow("Live Detection", annotated_frame)
+        if cv2.waitKey(1) & 0xFF == ord("q"):
+            break
+cap.release()
+cv2.destroyAllWindows()
+```
+
 ### On an Image
 ```python
 from ultralytics import YOLO
@@ -79,30 +98,13 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
-### Live Camera Detection
-```python
-import cv2
-from ultralytics import YOLO
-
-model = YOLO("best.pt")
-cap = cv2.VideoCapture(0)
-while cap.isOpened():
-    success, frame = cap.read()
-    if success:
-        results = model(frame)
-        annotated_frame = results[0].plot()
-        cv2.imshow("Live Detection", annotated_frame)
-        if cv2.waitKey(1) & 0xFF == ord("q"):
-            break
-cap.release()
-cv2.destroyAllWindows()
-```
-
 ## Performance Metrics
 The model was evaluated on multiple metrics to assess its accuracy and robustness:
 - **mAP (Mean Average Precision)**: 89.6%
 - **Inference Speed**: 35 FPS on RTX 3080
 - **Training Time**: ~2 hours on Google Colab GPU
+
+![Description of Image](assets/3.PNG)
 
 ## Applications
 - **Medical Use**: Identifying thermometers in healthcare settings.
