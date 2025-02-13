@@ -1,7 +1,7 @@
 # YOLOv8-Based Real-Time Detection System
 
 ## Project Overview
-This project implements a **real-time object detection system** using **YOLOv8** to detect thermometers, used thermometers, and humans. The model has been trained with a curated dataset using **Roboflow** for augmentation and is deployed for inference on images, videos, and live camera feeds.
+This project implements a **real-time object detection system** using **YOLOv8** to detect thermometers, used thermometers, and humans. The model has been trained with a curated dataset using **Roboflow** for augmentation and is deployed for inference on images, videos, and live camera feeds.The model can distinguish between a real thermometer and any other object that resembles a thermometer in shape or size but is not an actual thermometer.The dataset consists of photos of people using and not using the thermometer, as well as images of real thermometers and lookalike objects that resemble thermometers but are not actual thermometers.
 
 ![Description of GIF](assets/1.gif)
 ![Description of GIF](assets/2.gif)
